@@ -1,0 +1,24 @@
+﻿@model LoginDTO
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_LoginLayout.cshtml";
+}
+
+<div class="login-page">
+    <div class="login-box">
+        <h1>Login</h1>
+        <h3>Enter your login credentials</h3>
+        <form method="post">
+            <label for="Email">Email:</label>
+            <input type="email" id="Email" asp-for="Email" placeholder="Enter your email">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" asp-for="Password" placeholder="Enter your password">
+            <div class="login-button">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+

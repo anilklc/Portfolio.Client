@@ -1,0 +1,25 @@
+﻿@model UpdateSocialMediaDTO
+@{
+    ViewData["Title"] = "UpdateSocialMedia";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <h1>Update Social Media</h1>
+    <div class="form-box">
+        <form method="post">
+            <input type="hidden" asp-for="Id" />
+            <label for="SocialMediaName">Social Media Name:</label>
+            <input type="text" id="SocialMediaName" asp-for="SocialMediaName">
+            <label for="SocialMediaIcon">Social Media Icon:</label>
+            <input type="text" id="SocialMediaIcon" asp-for="SocialMediaIcon">
+            <label for="Title">Url:</label>
+            <input type="text" id="Url" asp-for="Url">
+            <div class="formbox-button">
+                <button type="submit">Update Social Media</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+

@@ -1,0 +1,22 @@
+﻿@model UpdatePartnerDTO
+@{
+    ViewData["Title"] = "UpdatePartner";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <h1>Update Partner</h1>
+    <div class="form-box">
+        <form method="post">
+            <input type="hidden" asp-for="Id" />
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" asp-for="Name">
+            <label for="Title">Image Url:</label>
+            <input type="text" id="ImageUrl" asp-for="ImageUrl">
+            <div class="formbox-button">
+                <button type="submit">Update Partner</button>
+            </div>
+        </form>
+    </div>
+</div>
+

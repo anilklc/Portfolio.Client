@@ -1,0 +1,31 @@
+﻿@model List<Role>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td><a class="btn update-btn" href="/Admin/Roles/UpdateRole/@item.Id">Update</a></td>
+                    <td><a class="btn delete-btn" href="/Admin/Roles/DeleteRole/@item.Id">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn create-btn" href="/Admin/Roles/CreateRole/">Create Role</a>
+</div>
+

@@ -1,0 +1,31 @@
+﻿@model GetInTouchDTO
+<div class="get-in-touch-bg">
+    <div class="wrapper">
+        <section class="get-in-touch" id="getintouch">
+
+            <div class="title">
+                <h1>Get In Touch</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+
+            <form method="post" asp-action="SendMessage" class="get-ib-touch-form">
+                <div class="form-box">
+                    <h6>Email</h6>
+                    <input type="email" asp-for="Email" placeholder="Please enter your email">
+                </div>
+                <div class="form-box">
+                    <h6>Mobile</h6>
+                    <input type="text" asp-for="Mobile" placeholder="Enter mobile">
+                </div>
+                <div class="form-box">
+                    <h6>Message</h6>
+                    <textarea asp-for="Message" placeholder="Enter your message"></textarea>
+                </div>
+                <button type="submit">Submit ></button>
+            </form>
+        </section>
+    </div>
+</div>

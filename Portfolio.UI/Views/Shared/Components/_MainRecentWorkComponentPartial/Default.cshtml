@@ -1,0 +1,38 @@
+﻿@model List<RecentWorkDTO>
+<div class="wrapper">
+    <section class="recent-work" id="recent-work">
+        <div class="title">
+            <h1>Recent Work</h1>
+            <p>
+                Solving user & business problems since last 15+ years.Lorem ipsum
+                dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+        <!-- Slider main container -->
+        <div class="wrapper">
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    @foreach (var item in Model)
+                    {
+                        <div class="swiper-slide">
+                            <img src="@item.ImageUrl" alt="" />
+                            <div class="content">
+                                <h1>@item.Title</h1>
+                                <p>
+                                    @item.Detail
+                                </p>
+                                <a class="button2 btn2" href="@item.Url" target="_blank">View case study ></a>
+                            </div>
+                        </div>
+                    }   
+                </div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+</div>

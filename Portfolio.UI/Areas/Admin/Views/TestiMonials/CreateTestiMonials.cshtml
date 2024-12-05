@@ -1,0 +1,24 @@
+﻿@model CreateTestiMonialsDTO
+
+@{
+    ViewData["Title"] = "CreateTestiMonials";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <h1>Create TestiMonials</h1>
+    <div class="form-box">
+        <form method="post">
+            <label for="ClientName">Client Name:</label>
+            <input type="text" id="ClientName" asp-for="ClientName">
+            <label for="ClientImage">Client Image:</label>
+            <input type="text" id="ClientImage" asp-for="ClientImage">
+            <label for="Comment">Comment:</label>
+            <input type="text" id="Comment" asp-for="Comment">
+            <div class="formbox-button">
+                <button type="submit">Create TestiMonials</button>
+            </div>
+        </form>
+    </div>
+</div>
+

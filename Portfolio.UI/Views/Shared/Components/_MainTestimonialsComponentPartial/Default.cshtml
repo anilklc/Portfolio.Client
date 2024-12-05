@@ -1,0 +1,29 @@
+﻿@model List<TestiMonialsDTO>
+<div class="testimonials-bg">
+    <div class="wrapper">
+        <section class="testimonials" id="testimonials">
+            <div class="title">
+                <h1>Testimonials</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+
+            <div class="testimonials-boxs">
+                @foreach (var item in Model)
+                {
+                    <div class="testimonials-box">
+                        <p>
+                            @item.Comment
+                        </p>
+                        <div class="client">
+                            <img src="@item.ClientImage" alt="" />
+                            <h5>@item.ClientName</h5>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
+</div>

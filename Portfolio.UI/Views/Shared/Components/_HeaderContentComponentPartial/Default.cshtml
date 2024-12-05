@@ -1,0 +1,14 @@
+﻿@model List<AboutDTO>
+<div class="wrapper">
+        @foreach (var item in Model)
+        {
+            <div class="header-content">
+            <h1>@item.Title</h1>
+            <p>
+                @item.Detail
+            </p>
+            <a class="button btn1" href="@item.Url" target="_blank">Let’s get started ></a>
+            </div>
+        <img class="header-image" src="@item.ImageUrl" alt="Photo" />
+        }
+</div>

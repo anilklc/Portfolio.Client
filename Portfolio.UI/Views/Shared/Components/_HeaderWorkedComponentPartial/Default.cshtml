@@ -1,0 +1,14 @@
+﻿@model List<PartnerDTO>
+<div class="wrapper">
+    <div class="header-worked">
+        <h5>Worked with</h5>
+        <div class="header-worked-images">
+            @foreach (var item in Model)
+            {
+                <div class="header-worked-images-box">
+                    <img src="@item.ImageUrl" alt="@item.Name" />
+                </div>
+            } 
+        </div>
+    </div>
+</div>

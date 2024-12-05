@@ -1,0 +1,25 @@
+﻿@model UpdateAboutDTO
+@{
+    ViewData["Title"] = "UpdateAbout";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <h1>Update About</h1>
+    <div class="form-box">
+        <form method="post">
+            <input type="hidden" asp-for="Id" />
+            <label for="Title">Title:</label>
+            <input type="text" id="Title" asp-for="Title">
+            <label for="Title">Detail:</label>
+            <input type="text" id="Detail" asp-for="Detail">
+            <label for="Title">Image Url:</label>
+            <input type="text" id="ImageUrl" asp-for="ImageUrl">
+            <label for="Title">Url:</label>
+            <input type="text" id="Url" asp-for="Url">
+            <div class="formbox-button">
+                <button type="submit">Update About</button>
+            </div>
+        </form>
+    </div>
+</div>

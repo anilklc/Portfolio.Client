@@ -1,0 +1,31 @@
+﻿@model List<CaseStudiesDTO>
+<div class="wrapper">
+    <section class="case-studies" id="case-studies">
+        <div class="title">
+            <h1>Case Studies</h1>
+            <p>
+                Solving user & business problems since last 15+ years. Lorem ipsum
+                dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+            </p>
+        </div>
+        @foreach (var item in Model)
+        {
+            string type = "work-box" + @item.BoxType;
+            <div class="@type">
+                <div class="work-box-detail">
+                    <h5>@item.Category</h5>
+                    <h1>@item.Title</h1>
+                    <p>
+                        @item.Detail
+                    </p>
+                    <a class="button2 btn2" href="@item.Url" target="_blank">View case study ></a>
+                </div>
+                <img class="work-box-img"
+                     src="@item.ImageUrl"
+                     alt="@item.Category" />
+            </div>
+        }
+    </section>
+
+</div>

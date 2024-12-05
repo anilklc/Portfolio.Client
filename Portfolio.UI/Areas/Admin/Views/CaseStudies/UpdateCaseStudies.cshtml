@@ -1,0 +1,31 @@
+﻿@model UpdateCaseStudiesDTO
+
+@{
+    ViewData["Title"] = "UpdateCaseStudies";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <h1>Update CaseStudies</h1>
+    <div class="form-box">
+        <form method="post">
+            <input type="hidden" asp-for="Id" />
+            <label for="Title">Title:</label>
+            <input type="text" id="Title" asp-for="Title">
+            <label for="Detail">Detail:</label>
+            <input type="text" id="Detail" asp-for="Detail">
+            <label for="ImageUrl">Image Url:</label>
+            <input type="text" id="ImageUrl" asp-for="ImageUrl">
+            <label for="Category">Category:</label>
+            <input type="text" id="Category" asp-for="Category">
+            <label for="BoxType">Box Type:</label>
+            <input type="number" id="BoxType" asp-for="BoxType">
+            <label for="Url">Url:</label>
+            <input type="text" id="Url" asp-for="Url">
+            <div class="formbox-button">
+                <button type="submit">Update CaseStudies</button>
+            </div>
+        </form>
+    </div>
+</div>
+

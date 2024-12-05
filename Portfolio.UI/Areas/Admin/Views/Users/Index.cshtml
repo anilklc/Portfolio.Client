@@ -1,0 +1,132 @@
+﻿@model List<User>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Username</th>
+                <th>Assing Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.UserName</td>
+                    <td>
+                        <a class="btn assign-role-btn" data-id="@item.Id"
+                           data-bs-toggle="modal"
+                           data-bs-target="#roleModalCenter" id="openModalBtn">Assign a Role</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div id="roleModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Assign Role</h2>
+        <form id="assignRoleForm">
+            <div id="roleList" class="role-list">
+                <!-- Dynamically loaded roles will go here -->
+            </div>
+            <input type="hidden" id="userId">
+            <button type="submit" class="submit-btn">Assign Role</button>
+        </form>
+    </div>
+</div>
+
+
+
+<script>
+      let selectedUserId = '';
+
+    // Open modal when assign role button is clicked
+    document.querySelectorAll('.assign-role-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            selectedUserId = this.getAttribute('data-id');
+
+            // Load roles and assigned roles
+            fetch(`@Url.Action("GetRolesForUser", "Users")?id=${selectedUserId}`)
+                .then(response => response.json())
+                .then(data => {
+                    const roleListContainer = document.getElementById('roleList');
+                    roleListContainer.innerHTML = ''; // Clear previous roles
+
+                    // If roles are found, display them
+                    if (data && data.allRoles && data.allRoles.length > 0) {
+                        data.allRoles.forEach(role => {
+                            // Check if role is already assigned
+                            const isChecked = data.assignedRoleNames.includes(role.name) ? 'checked' : '';
+
+                            roleListContainer.innerHTML += `
+                                <div class="role-option">
+                                    <input type="checkbox" name="roleNames" value="${role.name}" id="role_${role.id}" ${isChecked} />
+                                    <label for="role_${role.id}">${role.name}</label>
+                                </div>
+                            `;
+                        });
+                    } else {
+                        roleListContainer.innerHTML = `<p>No roles found.</p>`;
+                    }
+
+                    // Open the modal
+                    document.getElementById('roleModal').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error("Error fetching roles:", error);
+                    document.getElementById('roleList').innerHTML = `<p>Error loading roles.</p>`;
+                });
+        });
+    });
+
+    // Close modal when 'x' is clicked
+    document.querySelector('.close-btn').addEventListener('click', function () {
+        document.getElementById('roleModal').style.display = 'none';
+    });
+
+    // Save roles when form is submitted
+    document.getElementById('assignRoleForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        const checkedBoxes = document.querySelectorAll('input[name="roleNames"]:checked');
+        const roleNames = Array.from(checkedBoxes).map(box => box.value);
+
+        // Always close modal before making request
+        document.getElementById('roleModal').style.display = 'none';
+
+        fetch('@Url.Action("AssignRolesToUser", "Users")', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                Roles: roleNames,
+                userId: selectedUserId,
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Optionally refresh the page or notify user
+            window.location.href = '@Url.Action("Index", "Users")'; // Redirect after role assignment
+        })
+        .catch(error => {
+            console.error("Error saving roles:", error);
+            // Optionally show an error message
+        });
+    });
+
+</script>
+
+

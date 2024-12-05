@@ -1,0 +1,23 @@
+﻿@model CreateGetInTouchDTO
+@{
+    ViewData["Title"] = "CreateContact";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <h1>Create Contact</h1>
+    <div class="form-box">
+        <form method="post">
+            <label for="Email">Email:</label>
+            <input type="text" id="Email" asp-for="Email">
+            <label for="Mobile">Mobile:</label>
+            <input type="text" id="Mobile" asp-for="Mobile">
+            <label for="Message">Message:</label>
+            <input type="text" id="Message" asp-for="Message">
+            <div class="formbox-button">
+                <button type="submit">Create Contact</button>
+            </div>
+        </form>
+    </div>
+</div>
+

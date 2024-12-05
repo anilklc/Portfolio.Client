@@ -1,0 +1,25 @@
+﻿@model CreateRecentWorkDTO
+@{
+    ViewData["Title"] = "CreateRecentWork";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <h1>Create RecentWork</h1>
+    <div class="form-box">
+        <form method="post">
+            <label for="Title">Title:</label>
+            <input type="text" id="Title" asp-for="Title">
+            <label for="Title">Detail:</label>
+            <input type="text" id="Detail" asp-for="Detail">
+            <label for="Title">Image Url:</label>
+            <input type="text" id="ImageUrl" asp-for="ImageUrl">
+            <label for="Title">Url:</label>
+            <input type="text" id="Url" asp-for="Url">
+            <div class="formbox-button">
+                <button type="submit">Create RecentWork</button>
+            </div>
+        </form>
+    </div>
+</div>
+

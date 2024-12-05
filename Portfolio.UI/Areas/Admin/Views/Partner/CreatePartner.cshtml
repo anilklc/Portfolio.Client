@@ -1,0 +1,21 @@
+﻿@model CreatePartnerDTO
+@{
+    ViewData["Title"] = "CreatePartner";
+    Layout = "~/Views/AdminLayout/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <h1>Create Partner</h1>
+    <div class="form-box">
+        <form method="post">
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" asp-for="Name">
+            <label for="Title">Image Url:</label>
+            <input type="text" id="ImageUrl" asp-for="ImageUrl">
+            <div class="formbox-button">
+                <button type="submit">Create Partner</button>
+            </div>
+        </form>
+    </div>
+</div>
+
